@@ -1,6 +1,5 @@
 #include "Scene.h"
-//#include <SDL.h>
-//#include <stdio.h>
+#include "SDL2_gfxPrimitives.h"
 
 // Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -70,9 +69,12 @@ void Scene::draw() {
     SDL_RenderClear(this->renderer);
 
     // Draw rectangle
-    SDL_Rect filledRectangleCoords = { SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
-    SDL_SetRenderDrawColor(this->renderer, 0x00, 0x00, 0xFF, 0xFF);
-    SDL_RenderFillRect(this->renderer, &filledRectangleCoords);
+//    SDL_Rect filledRectangleCoords = { SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
+//    SDL_SetRenderDrawColor(this->renderer, 0x00, 0x00, 0xFF, 0xFF);
+//    SDL_RenderFillRect(this->renderer, &filledRectangleCoords);
+
+    // Draw circle
+    filledCircleColor(renderer, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_HEIGHT / 2, 0xFF0000FF);
 
     SDL_RenderPresent(this->renderer);
 }

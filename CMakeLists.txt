@@ -21,10 +21,13 @@ elseif (${CMAKE_CXX_COMPILER_ID} STREQUAL "MSVC")
     endif()
 endif()
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Scene.cpp)
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 
+find_package(SDL2_gfx REQUIRED)
+include_directories(${SDL2_GFX_INCLUDE_DIR})
+
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} Scene.cpp Scene.h)
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_GFX_LIBRARY})
